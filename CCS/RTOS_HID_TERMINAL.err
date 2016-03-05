@@ -1,0 +1,11 @@
+>>> Warning 203 "C:\Program Files (x86)\PICC\drivers\pic18_usb.c" Line 531(1,1): Condition always TRUE
+>>> Warning 216 "RTOS_HID_TERMINAL.c" Line 139(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_out)
+>>> Warning 216 "RTOS_HID_TERMINAL.c" Line 139(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_tbe)
+>>> Warning 216 "RTOS_HID_TERMINAL.c" Line 139(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_flush_in)
+>>> Warning 216 "RTOS_HID_TERMINAL.c" Line 139(0,1): Interrupts disabled during call to prevent re-entrancy:  (usb_token_reset)
+>>> Warning 202 "RTOS_HID_TERMINAL.c" Line 76(9,17): Variable never used:   out_data
+>>> Warning 202 "RTOS_HID_TERMINAL.c" Line 77(9,16): Variable never used:   in_data
+>>> Warning 202 "RTOS_HID_TERMINAL.c" Line 78(9,19): Variable never used:   send_timer
+>>> Warning 202 "RTOS_HID_TERMINAL.c" Line 79(9,17): Variable never used:   contador
+      Memory usage:   ROM=19%      RAM=13% - 20%
+      0 Errors,  9 Warnings.

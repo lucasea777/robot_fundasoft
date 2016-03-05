@@ -1,0 +1,26 @@
+[PROJECT]
+Target=RTOS_HID_TERMINAL.hex
+Development_Mode=
+Processor_Text=PIC18F2550
+ToolSuite=CCS
+Processor=0x2550
+[RTOS_HID_TERMINAL]
+Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
+[mru-list]
+1=RTOS_HID_TERMINAL.c
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+[Units]
+Link=0
+Count=1
+1=RTOS_HID_TERMINAL
+[Opened Files]
+1=RTOS_HID_TERMINAL.c
+2=terminal_hid.c
+3=
+4=
