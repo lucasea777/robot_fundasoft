@@ -60,8 +60,8 @@
 07D-07E usb_gets.max
 07D     lcd_putc.c
 07E     lcd_gotoxy.x
-07F-080 usb_gets.timeout
 07F     lcd_gotoxy.y
+07F-080 usb_gets.timeout
 080     lcd_gotoxy.address
 081-082 usb_gets.ret
 081     lcd_gotoxy.@SCRATCH1
@@ -71,8 +71,8 @@
 084     lcd_read_byte.low
 084     lcd_send_byte.@SCRATCH1
 085     lcd_send_nibble.nibble
-085-086 usb_gets.len
 085     lcd_read_byte.high
+085-086 usb_gets.len
 086.0   lcd_read_nibble.retval_0
 086     lcd_read_nibble.retval
 086.1   lcd_read_nibble.retval_1
@@ -96,8 +96,8 @@
 098-099 usb_get_packet_buffer.i
 09A     usb_get_packet_buffer.@SCRATCH1
 09B     usb_get_packet_buffer.@SCRATCH2
-0BF     @delay_ms1.P1
 0BF     usb_puts.endpoint
+0BF     @delay_ms1.P1
 0C0-0C1 usb_puts.ptr
 0C2-0C3 usb_puts.len
 0C4     usb_puts.timeout
@@ -131,21 +131,21 @@
 0E3     usb_isr.@SCRATCH1
 0E4     pidKey
 0E4     usb_token_reset.@SCRATCH1
-0E5     usb_isr_tok_out_dne.endpoint
 0E5     usb_unstall_ep.endpoint
-0E5     usb_isr_tkn_setup_StandardInterface.curr_config
+0E5     usb_isr_tok_out_dne.endpoint
 0E5     usb_stall_ep.endpoint
+0E5     usb_flush_in.endpoint
+0E5     usb_isr_tkn_setup_StandardInterface.curr_config
+0E5     usb_flush_out.endpoint
+0E5     usb_set_configured.config
 0E5     usb_isr_tok_in_dne.endpoint
 0E5     usb_endpoint_stalled.endpoint
-0E5     usb_set_configured.config
-0E5     usb_flush_in.endpoint
-0E5     usb_flush_out.endpoint
 0E5     usb_isr_tok_dne.@SCRATCH1
 0E5     usb_token_reset.@SCRATCH2
-0E6     usb_set_address.address
-0E6-0E7 usb_flush_in.len
 0E6     usb_set_configured.en
+0E6     usb_set_address.address
 0E6     usb_copy_desc_seg_to_ep.i
+0E6-0E7 usb_flush_in.len
 0E6.0   usb_stall_ep.direction
 0E6     usb_flush_out.tgl
 0E6.0   usb_endpoint_stalled.direction
@@ -161,9 +161,9 @@
 0E7     usb_unstall_ep.@SCRATCH1
 0E7     usb_isr_tok_dne.@SCRATCH3
 0E7     usb_isr_tkn_setup_StandardInterface.@SCRATCH2
+0E8     usb_request_send_response.len
 0E8-0E9 usb_flush_out.len
 0E8     usb_flush_in.tgl
-0E8     usb_request_send_response.len
 0E8     usb_stall_ep.@SCRATCH2
 0E8     usb_unstall_ep.@SCRATCH2
 0E8     usb_endpoint_stalled.@SCRATCH1
@@ -194,8 +194,8 @@
 400-49F g_USBRAM
 F66     UFRML
 F67     UFRMH
-F68.0   UIR_URST
 F68     UIR
+F68.0   UIR_URST
 F68.1   UIR_UERR
 F68.2   UIR_ACTV
 F68.3   UIR_TRN
@@ -247,7 +247,7 @@ ROM Allocation:
 0DCC  lcd_read_nibble
 0DFE  lcd_read_byte
 0E68  lcd_send_byte
-15BE  lcd_init
+15EA  lcd_init
 0EAA  lcd_gotoxy
 0EFC  lcd_putc
 00B4  usb_ep_tx_type
@@ -262,13 +262,13 @@ ROM Allocation:
 01EA  USB_STRING_DESC
 0F92  usb_kbhit
 0AA6  usb_tbe
-161E  usb_detach
-1648  usb_attach
-1642  usb_init_cs
-166A  usb_task
-168E  usb_init
+164A  usb_detach
+1674  usb_attach
+166E  usb_init_cs
+1696  usb_task
+16BA  usb_init
 0AE6  usb_flush_in
-12FA  usb_put_packet
+1326  usb_put_packet
 09E4  usb_flush_out
 0FC8  usb_get_packet_buffer
 108E  usb_get_packet
@@ -292,8 +292,8 @@ ROM Allocation:
 03A6  usb_request_stall
 0BFC  usb_isr_tok_dne
 0DC6  usb_enumerated
-13A4  usb_puts
-12A6  @MUL3232
+13D0  usb_puts
+12D2  @MUL3232
 10CE  usb_gets
 0342  usb_token_reset
 0288  usb_endpoint_is_valid
@@ -309,21 +309,22 @@ ROM Allocation:
 03AC  usb_copy_desc_seg_to_ep
 0442  @goto11167
 11E2  checkear_terminal
-1270  @const420
+128C  @const420
 0F72  @PSTRINGC_87
-127E  @const422
-128A  @const423
-129C  @const424
+129A  @const422
+12A6  @const423
+12B8  @const424
 119C  @PSTRINGCN_87
 11BC  @PSTRINGR_87
-153E  hid_heart_beat
-1566  heart_beat
-1576  mandar_boton
-169C  MAIN
-15A4  @const436
-15B0  @const437
-0220  @const438
-169C  @cinit
+12C2  @const428
+156A  hid_heart_beat
+1592  heart_beat
+15A2  mandar_boton
+16C8  MAIN
+15D0  @const437
+15DC  @const438
+0220  @const439
+16C8  @cinit
 
 
 User Memory space: 
@@ -331,22 +332,21 @@ User Memory space:
 User Memory space: 
 
 Project Directory:
-    F:\EDocuments\FundaSoft\Electronica\Proyectos_Documentados\RTOS_HID_TERMINAL\PIC C\
+    C:\users\luks\My Documents\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\CCS\
 
 Project Files:
     RTOS_HID_TERMINAL.c
-    C:\Program Files (x86)\PICC\devices\18f2550.h
+    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\devices\18f2550.h
     lib\flex_lcd_2.c
-    C:\Program Files (x86)\PICC\drivers\pic18_usb.h
-    C:\Program Files (x86)\PICC\drivers\usb_hw_layer.h
+    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\pic18_usb.h
+    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\usb_hw_layer.h
     lib\usb_desc_hid.h
-    C:\Program Files (x86)\PICC\drivers\usb.h
-    C:\Program Files (x86)\PICC\drivers\usb.c
-    C:\Program Files (x86)\PICC\drivers\pic18_usb.c
-    terminal_hid.c
+    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\usb.h
+    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\usb.c
+    ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\pic18_usb.c
 
 Units:
-    F:\EDocuments\FundaSoft\Electronica\Proyectos_Documentados\RTOS_HID_TERMINAL\PIC C\RTOS_HID_TERMINAL (main)
+    C:\users\luks\My Documents\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\CCS\RTOS_HID_TERMINAL (main)
 
 Compiler Settings:
     Processor:      PIC18F2550
@@ -357,6 +357,259 @@ Compiler Settings:
     Float,Double:   32,32
 
 Task Schedule:
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  heart_beat
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  hid_heart_beat
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  heart_beat
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+      10 ms  mandar_boton
+    Sync to next 10 ms
+      10 ms  checkear_terminal
+    Sync to next 10 ms
 
 Output Files:
     Errors:      RTOS_HID_TERMINAL.err

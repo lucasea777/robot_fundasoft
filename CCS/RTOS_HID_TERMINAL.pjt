@@ -15,12 +15,14 @@ AdditionalOptionString=
 1=RTOS_HID_TERMINAL.c
 [Windows]
 0=0000 %S 0 0 796 451 3 0
-[Units]
-Link=0
-Count=1
-1=RTOS_HID_TERMINAL
 [Opened Files]
 1=RTOS_HID_TERMINAL.c
 2=terminal_hid.c
 3=
 4=
+[Target Data]
+OptionString=-p +FH
+FileList=C:\users\luks\My Documents\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\CCS\RTOS_HID_TERMINAL.c
+[Units]
+Count=1
+1=RTOS_HID_TERMINAL (main)

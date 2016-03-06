@@ -1,15 +1,15 @@
-CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
+CCS PCH C Compiler, Version 4.104, 5967               06-Mar-16 00:19
 
-               Filename: F:\EDocuments\FundaSoft\Electronica\Proyectos_Documentados\RTOS_HID_TERMINAL\PIC C\RTOS_HID_TERMINAL.lst
+               Filename: C:\users\luks\My Documents\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\CCS\RTOS_HID_TERMINAL.lst
 
-               ROM used: 6154 bytes (19%)
-                         Largest free fragment is 26614
+               ROM used: 6202 bytes (19%)
+                         Largest free fragment is 26566
                RAM used: 270 (13%) at main() level
                          402 (20%) worst case
                Stack:    15 worst case (6 in main + 9 for interrupts)
 
 *
-0000:  GOTO   169C
+0000:  GOTO   16C8
 *
 0008:  MOVWF  04
 000A:  MOVFF  FD8,05
@@ -327,65 +327,65 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................  
 .................... output_low(LCD_RS); 
 *
-15BE:  BCF    F93.1
-15C0:  BCF    F8A.1
+15EA:  BCF    F93.1
+15EC:  BCF    F8A.1
 ....................  
 .................... #ifdef USE_LCD_RW 
 .................... output_low(LCD_RW); 
-15C2:  BCF    F93.2
-15C4:  BCF    F8A.2
+15EE:  BCF    F93.2
+15F0:  BCF    F8A.2
 .................... #endif 
 ....................  
 .................... output_low(LCD_E); 
-15C6:  BCF    F93.7
-15C8:  BCF    F8A.7
+15F2:  BCF    F93.7
+15F4:  BCF    F8A.7
 ....................  
 .................... delay_ms(15); 
-15CA:  MOVLW  0F
-15CC:  MOVWF  xBF
-15CE:  RCALL  0ED4
+15F6:  MOVLW  0F
+15F8:  MOVWF  xBF
+15FA:  RCALL  0ED4
 ....................  
 .................... for(i=0 ;i < 3; i++) 
-15D0:  CLRF   x6E
-15D2:  MOVF   x6E,W
-15D4:  SUBLW  02
-15D6:  BNC   15E8
+15FC:  CLRF   x6E
+15FE:  MOVF   x6E,W
+1600:  SUBLW  02
+1602:  BNC   1614
 ....................    { 
 ....................     lcd_send_nibble(0x03); 
-15D8:  MOVLW  03
-15DA:  MOVWF  x85
-15DC:  RCALL  0E22
+1604:  MOVLW  03
+1606:  MOVWF  x85
+1608:  RCALL  0E22
 ....................     delay_ms(5); 
-15DE:  MOVLW  05
-15E0:  MOVWF  xBF
-15E2:  RCALL  0ED4
+160A:  MOVLW  05
+160C:  MOVWF  xBF
+160E:  RCALL  0ED4
 ....................    } 
-15E4:  INCF   x6E,F
-15E6:  BRA    15D2
+1610:  INCF   x6E,F
+1612:  BRA    15FE
 ....................  
 .................... lcd_send_nibble(0x02); 
-15E8:  MOVLW  02
-15EA:  MOVWF  x85
-15EC:  RCALL  0E22
+1614:  MOVLW  02
+1616:  MOVWF  x85
+1618:  RCALL  0E22
 ....................  
 .................... for(i=0; i < sizeof(LCD_INIT_STRING); i++) 
-15EE:  CLRF   x6E
-15F0:  MOVF   x6E,W
-15F2:  SUBLW  03
-15F4:  BNC   1614
+161A:  CLRF   x6E
+161C:  MOVF   x6E,W
+161E:  SUBLW  03
+1620:  BNC   1640
 ....................    { 
 ....................     lcd_send_byte(0, LCD_INIT_STRING[i]); 
-15F6:  CLRF   03
-15F8:  MOVF   x6E,W
-15FA:  MOVFF  FF2,6F
-15FE:  BCF    FF2.7
-1600:  CALL   0096
-1604:  BTFSC  x6F.7
-1606:  BSF    FF2.7
-1608:  MOVWF  x6F
-160A:  CLRF   x82
-160C:  MOVWF  x83
-160E:  RCALL  0E68
+1622:  CLRF   03
+1624:  MOVF   x6E,W
+1626:  MOVFF  FF2,6F
+162A:  BCF    FF2.7
+162C:  CALL   0096
+1630:  BTFSC  x6F.7
+1632:  BSF    FF2.7
+1634:  MOVWF  x6F
+1636:  CLRF   x82
+1638:  MOVWF  x83
+163A:  RCALL  0E68
 ....................  
 ....................     // If the R/W signal is not used, then 
 ....................     // the busy bit can't be polled.  One of 
@@ -397,14 +397,14 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................     delay_ms(5); 
 ....................     #endif 
 ....................    } 
-1610:  INCF   x6E,F
-1612:  BRA    15F0
+163C:  INCF   x6E,F
+163E:  BRA    161C
 .................... delay_ms(15); 
-1614:  MOVLW  0F
-1616:  MOVWF  xBF
-1618:  RCALL  0ED4
+1640:  MOVLW  0F
+1642:  MOVWF  xBF
+1644:  RCALL  0ED4
 .................... } 
-161A:  GOTO   16EC (RETURN)
+1646:  GOTO   1718 (RETURN)
 ....................  
 .................... //---------------------------- 
 .................... // Posiciones válidas: 
@@ -5422,12 +5422,12 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 .................... { 
 ....................    UCON = 0;  //disable USB hardware 
 *
-161E:  CLRF   F6D
+164A:  CLRF   F6D
 ....................    UIE = 0;   //disable USB interrupts 
-1620:  CLRF   F69
+164C:  CLRF   F69
 ....................    UCFG = __UCFG_VAL_DISABLED__; 
-1622:  MOVLW  08
-1624:  MOVWF  F6F
+164E:  MOVLW  08
+1650:  MOVWF  F6F
 ....................     
 ....................    // set D+/D- to inputs 
 ....................   #if defined(__USB_87J50__) 
@@ -5436,61 +5436,61 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................    set_tris_a(get_tris_a() | 0x3); 
 ....................   #else 
 ....................    set_tris_c(get_tris_c() | 0x30); 
-1626:  MOVF   F94,W
-1628:  IORLW  30
-162A:  MOVWF  F94
+1652:  MOVF   F94,W
+1654:  IORLW  30
+1656:  MOVWF  F94
 ....................   #endif 
 ....................    
 ....................    usb_state = USB_STATE_DETACHED; 
-162C:  CLRF   1F
-162E:  CLRF   16
-1630:  BTFSC  FF2.7
-1632:  BSF    16.7
-1634:  BCF    FF2.7
+1658:  CLRF   1F
+165A:  CLRF   16
+165C:  BTFSC  FF2.7
+165E:  BSF    16.7
+1660:  BCF    FF2.7
 ....................     
 ....................    usb_token_reset();              //clear the chapter9 stack 
-1636:  CALL   0342
-163A:  BTFSC  16.7
-163C:  BSF    FF2.7
+1662:  CALL   0342
+1666:  BTFSC  16.7
+1668:  BSF    FF2.7
 ....................    //__usb_kbhit_status=0; 
 .................... } 
-163E:  GOTO   1644 (RETURN)
+166A:  GOTO   1670 (RETURN)
 ....................  
 .................... // see usb_hw_layer.h for documentation 
 .................... void usb_attach(void)  
 .................... { 
 *
-1648:  CLRF   16
-164A:  BTFSC  FF2.7
-164C:  BSF    16.7
-164E:  BCF    FF2.7
+1674:  CLRF   16
+1676:  BTFSC  FF2.7
+1678:  BSF    16.7
+167A:  BCF    FF2.7
 ....................    usb_token_reset(); 
-1650:  CALL   0342
-1654:  BTFSC  16.7
-1656:  BSF    FF2.7
+167C:  CALL   0342
+1680:  BTFSC  16.7
+1682:  BSF    FF2.7
 ....................    UCON = 0; 
-1658:  CLRF   F6D
+1684:  CLRF   F6D
 ....................    UCFG = __UCFG_VAL_ENABLED__; 
-165A:  MOVLW  14
-165C:  MOVWF  F6F
+1686:  MOVLW  14
+1688:  MOVWF  F6F
 ....................    UIE = 0;                                // Mask all USB interrupts 
-165E:  CLRF   F69
+168A:  CLRF   F69
 ....................    UCON_USBEN = 1;                     // Enable module & attach to bus 
-1660:  BSF    F6D.3
+168C:  BSF    F6D.3
 ....................    usb_state = USB_STATE_ATTACHED;      // Defined in usbmmap.c & .h 
-1662:  MOVLW  01
-1664:  MOVWF  1F
+168E:  MOVLW  01
+1690:  MOVWF  1F
 .................... } 
-1666:  GOTO   1670 (RETURN)
+1692:  GOTO   169C (RETURN)
 ....................  
 .................... // see usb_hw_layer.h for documentation 
 .................... void usb_init_cs(void) 
 .................... { 
 ....................    usb_detach(); 
 *
-1642:  BRA    161E
+166E:  BRA    164A
 .................... } 
-1644:  GOTO   1690 (RETURN)
+1670:  GOTO   16BC (RETURN)
 ....................  
 .................... // see usb_hw_layer.h for documentation 
 .................... void usb_task(void)  
@@ -5499,12 +5499,12 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................    { 
 ....................       if (UCON_USBEN==0)  
 *
-166A:  BTFSC  F6D.3
-166C:  BRA    1670
+1696:  BTFSC  F6D.3
+1698:  BRA    169C
 ....................       { 
 ....................          debug_usb(debug_putc, "\r\n\nUSB TASK: ATTACH"); 
 ....................          usb_attach(); 
-166E:  BRA    1648
+169A:  BRA    1674
 ....................       } 
 ....................    } 
 ....................    else  
@@ -5517,47 +5517,47 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................    } 
 ....................  
 ....................    if ((usb_state == USB_STATE_ATTACHED)&&(!UCON_SE0))  
-1670:  DECFSZ 1F,W
-1672:  BRA    168A
-1674:  BTFSC  F6D.5
-1676:  BRA    168A
+169C:  DECFSZ 1F,W
+169E:  BRA    16B6
+16A0:  BTFSC  F6D.5
+16A2:  BRA    16B6
 ....................    { 
 ....................       UIR=0; 
-1678:  CLRF   F68
+16A4:  CLRF   F68
 ....................       UIE=0; 
-167A:  CLRF   F69
+16A6:  CLRF   F69
 ....................       enable_interrupts(INT_USB); 
-167C:  BSF    FA0.5
+16A8:  BSF    FA0.5
 ....................       enable_interrupts(GLOBAL); 
-167E:  MOVLW  C0
-1680:  IORWF  FF2,F
+16AA:  MOVLW  C0
+16AC:  IORWF  FF2,F
 ....................       UIE=__USB_UIF_IDLE | __USB_UIF_RESET;  //enable IDLE and RESET USB ISR 
-1682:  MOVLW  11
-1684:  MOVWF  F69
+16AE:  MOVLW  11
+16B0:  MOVWF  F69
 ....................       usb_state=USB_STATE_POWERED; 
-1686:  MOVLW  02
-1688:  MOVWF  1F
+16B2:  MOVLW  02
+16B4:  MOVWF  1F
 ....................       debug_usb(debug_putc, "\r\n\nUSB TASK: POWERED"); 
 ....................    } 
 .................... } 
-168A:  GOTO   1692 (RETURN)
+16B6:  GOTO   16BE (RETURN)
 ....................  
 .................... // see usb_hw_layer.h for documentation 
 .................... void usb_init(void)  
 .................... { 
 ....................    usb_init_cs(); 
-168E:  BRA    1642
+16BA:  BRA    166E
 ....................  
 ....................    do  
 ....................    { 
 ....................       usb_task(); 
-1690:  BRA    166A
+16BC:  BRA    1696
 ....................    } while (usb_state != USB_STATE_POWERED); 
-1692:  MOVF   1F,W
-1694:  SUBLW  02
-1696:  BNZ   1690
+16BE:  MOVF   1F,W
+16C0:  SUBLW  02
+16C2:  BNZ   16BC
 .................... } 
-1698:  GOTO   170A (RETURN)
+16C4:  GOTO   1736 (RETURN)
 ....................  
 ....................  
 .................... // see pic18_usb.h for documentation 
@@ -5721,80 +5721,80 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 .................... int1 usb_put_packet(int8 endpoint, int8 * ptr, int16 len, USB_DTS_BIT tgl)  
 .................... { 
 *
-12FA:  CLRF   16
-12FC:  BTFSC  FF2.7
-12FE:  BSF    16.7
-1300:  BCF    FF2.7
+1326:  CLRF   16
+1328:  BTFSC  FF2.7
+132A:  BSF    16.7
+132C:  BCF    FF2.7
 ....................    int8 * buff_add;     
 ....................  
 ....................    if (usb_tbe(endpoint))  
-1302:  MOVFF  D2,EA
-1306:  CALL   0AA6
-130A:  BTFSC  16.7
-130C:  BSF    FF2.7
-130E:  MOVF   01,F
-1310:  BZ    139E
+132E:  MOVFF  D2,EA
+1332:  CALL   0AA6
+1336:  BTFSC  16.7
+1338:  BSF    FF2.7
+133A:  MOVF   01,F
+133C:  BZ    13CA
 ....................    { 
 ....................       buff_add = EP_BDxADR_I(endpoint); 
-1312:  MOVF   xD2,W
-1314:  MULLW  08
-1316:  MOVF   FF3,W
-1318:  CLRF   xDB
-131A:  MOVWF  xDA
-131C:  MOVLW  04
-131E:  ADDWF  xDA,F
-1320:  MOVLW  00
-1322:  ADDWFC xDB,F
-1324:  MOVLW  02
-1326:  ADDWF  xDA,W
-1328:  MOVWF  01
-132A:  MOVLW  00
-132C:  ADDWFC xDB,W
-132E:  MOVWF  03
-1330:  MOVFF  01,FE9
-1334:  MOVLW  04
-1336:  ADDWF  03,W
-1338:  MOVWF  FEA
-133A:  MOVFF  FEC,03
-133E:  MOVF   FED,F
-1340:  MOVFF  FEF,D8
-1344:  MOVFF  03,D9
+133E:  MOVF   xD2,W
+1340:  MULLW  08
+1342:  MOVF   FF3,W
+1344:  CLRF   xDB
+1346:  MOVWF  xDA
+1348:  MOVLW  04
+134A:  ADDWF  xDA,F
+134C:  MOVLW  00
+134E:  ADDWFC xDB,F
+1350:  MOVLW  02
+1352:  ADDWF  xDA,W
+1354:  MOVWF  01
+1356:  MOVLW  00
+1358:  ADDWFC xDB,W
+135A:  MOVWF  03
+135C:  MOVFF  01,FE9
+1360:  MOVLW  04
+1362:  ADDWF  03,W
+1364:  MOVWF  FEA
+1366:  MOVFF  FEC,03
+136A:  MOVF   FED,F
+136C:  MOVFF  FEF,D8
+1370:  MOVFF  03,D9
 ....................       memcpy(buff_add, ptr, len);      
-1348:  MOVFF  D9,FEA
-134C:  MOVFF  D8,FE9
-1350:  MOVFF  D4,FE2
-1354:  MOVFF  D3,FE1
-1358:  MOVFF  D6,02
-135C:  MOVFF  D5,01
-1360:  MOVF   01,F
-1362:  BZ    1368
-1364:  INCF   02,F
-1366:  BRA    136C
-1368:  MOVF   02,F
-136A:  BZ    1378
-136C:  MOVFF  FE6,FEE
-1370:  DECFSZ 01,F
-1372:  BRA    136C
-1374:  DECFSZ 02,F
-1376:  BRA    136C
-1378:  CLRF   16
-137A:  BTFSC  FF2.7
-137C:  BSF    16.7
-137E:  BCF    FF2.7
+1374:  MOVFF  D9,FEA
+1378:  MOVFF  D8,FE9
+137C:  MOVFF  D4,FE2
+1380:  MOVFF  D3,FE1
+1384:  MOVFF  D6,02
+1388:  MOVFF  D5,01
+138C:  MOVF   01,F
+138E:  BZ    1394
+1390:  INCF   02,F
+1392:  BRA    1398
+1394:  MOVF   02,F
+1396:  BZ    13A4
+1398:  MOVFF  FE6,FEE
+139C:  DECFSZ 01,F
+139E:  BRA    1398
+13A0:  DECFSZ 02,F
+13A2:  BRA    1398
+13A4:  CLRF   16
+13A6:  BTFSC  FF2.7
+13A8:  BSF    16.7
+13AA:  BCF    FF2.7
 ....................        
 ....................       return(usb_flush_in(endpoint, len, tgl)); 
-1380:  MOVFF  D2,E5
-1384:  MOVFF  D6,E7
-1388:  MOVFF  D5,E6
-138C:  MOVFF  D7,E8
-1390:  CALL   0AE6
-1394:  BTFSC  16.7
-1396:  BSF    FF2.7
-1398:  MOVF   01,W
-139A:  BRA    13A2
+13AC:  MOVFF  D2,E5
+13B0:  MOVFF  D6,E7
+13B4:  MOVFF  D5,E6
+13B8:  MOVFF  D7,E8
+13BC:  CALL   0AE6
+13C0:  BTFSC  16.7
+13C2:  BSF    FF2.7
+13C4:  MOVF   01,W
+13C6:  BRA    13CE
 ....................    } 
 ....................    else  
-139C:  BRA    139E
+13C8:  BRA    13CA
 ....................    { 
 ....................       //putc('-'); 
 ....................       //printf("%X", EP_BDxST_I(endpoint)); 
@@ -5802,10 +5802,10 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................    } 
 ....................  
 ....................    return(0); 
-139E:  MOVLW  00
-13A0:  MOVWF  01
+13CA:  MOVLW  00
+13CC:  MOVWF  01
 .................... } 
-13A2:  RETLW  00
+13CE:  RETLW  00
 ....................  
 .................... // see pic18_usb.h for documentation 
 .................... void usb_flush_out(int8 endpoint, USB_DTS_BIT tgl)  
@@ -7334,8 +7334,8 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 .................... // see USB.H for documentation 
 .................... int1 usb_puts(int8 endpoint, int8 * ptr, unsigned int16 len, unsigned int8 timeout) { 
 *
-13A4:  CLRF   xC6
-13A6:  CLRF   xC5
+13D0:  CLRF   xC6
+13D2:  CLRF   xC5
 ....................    unsigned int16 i=0; 
 ....................    int1 res; 
 ....................    unsigned int16 this_packet_len; 
@@ -7343,219 +7343,219 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................    unsigned int32 timeout_1us; 
 ....................  
 ....................    packet_size = usb_ep_tx_size[endpoint]; 
-13A8:  BCF    FD8.0
-13AA:  RLCF   xBF,W
-13AC:  CLRF   03
-13AE:  MOVFF  FF2,D0
-13B2:  BCF    FF2.7
-13B4:  CALL   00D4
-13B8:  TBLRD*+
-13BA:  MOVFF  FF5,03
-13BE:  BTFSC  xD0.7
-13C0:  BSF    FF2.7
-13C2:  MOVWF  xCA
-13C4:  MOVFF  03,CB
+13D4:  BCF    FD8.0
+13D6:  RLCF   xBF,W
+13D8:  CLRF   03
+13DA:  MOVFF  FF2,D0
+13DE:  BCF    FF2.7
+13E0:  CALL   00D4
+13E4:  TBLRD*+
+13E6:  MOVFF  FF5,03
+13EA:  BTFSC  xD0.7
+13EC:  BSF    FF2.7
+13EE:  MOVWF  xCA
+13F0:  MOVFF  03,CB
 ....................     
 ....................    //printf("\r\nUSB PUTS %U LEN=%LU MAX_PACK=%LU\r\n", endpoint, len, packet_size); 
 ....................  
 ....................    //send data packets until timeout or no more packets to send 
 ....................    while (i < len)  
 ....................    { 
-13C8:  MOVF   xC6,W
-13CA:  SUBWF  xC3,W
-13CC:  BTFSS  FD8.0
-13CE:  BRA    14A6
-13D0:  BNZ   13D8
-13D2:  MOVF   xC2,W
-13D4:  SUBWF  xC5,W
-13D6:  BC    14A6
+13F4:  MOVF   xC6,W
+13F6:  SUBWF  xC3,W
+13F8:  BTFSS  FD8.0
+13FA:  BRA    14D2
+13FC:  BNZ   1404
+13FE:  MOVF   xC2,W
+1400:  SUBWF  xC5,W
+1402:  BC    14D2
 ....................       timeout_1us = (int32)timeout*1000; 
-13D8:  CLRF   xD3
-13DA:  CLRF   xD2
-13DC:  CLRF   xD1
-13DE:  MOVFF  C4,D0
-13E2:  MOVFF  D3,D7
-13E6:  MOVFF  D2,D6
-13EA:  MOVFF  D1,D5
-13EE:  MOVFF  C4,D4
-13F2:  CLRF   xDB
-13F4:  CLRF   xDA
-13F6:  MOVLW  03
-13F8:  MOVWF  xD9
-13FA:  MOVLW  E8
-13FC:  MOVWF  xD8
-13FE:  RCALL  12A6
-1400:  MOVFF  03,CF
-1404:  MOVFF  02,CE
-1408:  MOVFF  01,CD
-140C:  MOVFF  00,CC
+1404:  CLRF   xD3
+1406:  CLRF   xD2
+1408:  CLRF   xD1
+140A:  MOVFF  C4,D0
+140E:  MOVFF  D3,D7
+1412:  MOVFF  D2,D6
+1416:  MOVFF  D1,D5
+141A:  MOVFF  C4,D4
+141E:  CLRF   xDB
+1420:  CLRF   xDA
+1422:  MOVLW  03
+1424:  MOVWF  xD9
+1426:  MOVLW  E8
+1428:  MOVWF  xD8
+142A:  RCALL  12D2
+142C:  MOVFF  03,CF
+1430:  MOVFF  02,CE
+1434:  MOVFF  01,CD
+1438:  MOVFF  00,CC
 ....................       if ((len - i) > packet_size) {this_packet_len = packet_size;} 
-1410:  MOVF   xC5,W
-1412:  SUBWF  xC2,W
-1414:  MOVWF  xD0
-1416:  MOVF   xC6,W
-1418:  SUBWFB xC3,W
-141A:  MOVWF  xD1
-141C:  MOVF   xCB,W
-141E:  SUBWF  xD1,W
-1420:  BNC   1434
-1422:  BNZ   142A
-1424:  MOVF   xD0,W
-1426:  SUBWF  xCA,W
-1428:  BC    1434
-142A:  MOVFF  CB,C9
-142E:  MOVFF  CA,C8
+143C:  MOVF   xC5,W
+143E:  SUBWF  xC2,W
+1440:  MOVWF  xD0
+1442:  MOVF   xC6,W
+1444:  SUBWFB xC3,W
+1446:  MOVWF  xD1
+1448:  MOVF   xCB,W
+144A:  SUBWF  xD1,W
+144C:  BNC   1460
+144E:  BNZ   1456
+1450:  MOVF   xD0,W
+1452:  SUBWF  xCA,W
+1454:  BC    1460
+1456:  MOVFF  CB,C9
+145A:  MOVFF  CA,C8
 ....................       else {this_packet_len = len-i;} 
-1432:  BRA    1440
-1434:  MOVF   xC5,W
-1436:  SUBWF  xC2,W
-1438:  MOVWF  xC8
-143A:  MOVF   xC6,W
-143C:  SUBWFB xC3,W
-143E:  MOVWF  xC9
+145E:  BRA    146C
+1460:  MOVF   xC5,W
+1462:  SUBWF  xC2,W
+1464:  MOVWF  xC8
+1466:  MOVF   xC6,W
+1468:  SUBWFB xC3,W
+146A:  MOVWF  xC9
 ....................       //putc('*'); 
 ....................       do  
 ....................       { 
 ....................          res = usb_put_packet(endpoint, ptr + i, this_packet_len, USB_DTS_TOGGLE);   //send 64 byte packets 
-1440:  MOVF   xC5,W
-1442:  ADDWF  xC0,W
-1444:  MOVWF  xD0
-1446:  MOVF   xC6,W
-1448:  ADDWFC xC1,W
-144A:  MOVWF  xD1
-144C:  MOVFF  BF,D2
-1450:  MOVWF  xD4
-1452:  MOVFF  D0,D3
-1456:  MOVFF  C9,D6
-145A:  MOVFF  C8,D5
-145E:  MOVLW  02
-1460:  MOVWF  xD7
-1462:  RCALL  12FA
-1464:  BCF    xC7.0
-1466:  BTFSC  01.0
-1468:  BSF    xC7.0
+146C:  MOVF   xC5,W
+146E:  ADDWF  xC0,W
+1470:  MOVWF  xD0
+1472:  MOVF   xC6,W
+1474:  ADDWFC xC1,W
+1476:  MOVWF  xD1
+1478:  MOVFF  BF,D2
+147C:  MOVWF  xD4
+147E:  MOVFF  D0,D3
+1482:  MOVFF  C9,D6
+1486:  MOVFF  C8,D5
+148A:  MOVLW  02
+148C:  MOVWF  xD7
+148E:  RCALL  1326
+1490:  BCF    xC7.0
+1492:  BTFSC  01.0
+1494:  BSF    xC7.0
 ....................          //putc('.'); 
 ....................          if (!res) 
-146A:  BTFSC  xC7.0
-146C:  BRA    1488
+1496:  BTFSC  xC7.0
+1498:  BRA    14B4
 ....................          { 
 ....................             delay_us(1); 
-146E:  MOVLW  03
-1470:  MOVWF  00
-1472:  DECFSZ 00,F
-1474:  BRA    1472
-1476:  BRA    1478
+149A:  MOVLW  03
+149C:  MOVWF  00
+149E:  DECFSZ 00,F
+14A0:  BRA    149E
+14A2:  BRA    14A4
 ....................             //delay_ms(500); 
 ....................             timeout_1us--; 
-1478:  MOVLW  FF
-147A:  ADDWF  xCC,F
-147C:  BTFSS  FD8.0
-147E:  ADDWF  xCD,F
-1480:  BTFSS  FD8.0
-1482:  ADDWF  xCE,F
-1484:  BTFSS  FD8.0
-1486:  ADDWF  xCF,F
+14A4:  MOVLW  FF
+14A6:  ADDWF  xCC,F
+14A8:  BTFSS  FD8.0
+14AA:  ADDWF  xCD,F
+14AC:  BTFSS  FD8.0
+14AE:  ADDWF  xCE,F
+14B0:  BTFSS  FD8.0
+14B2:  ADDWF  xCF,F
 ....................          } 
 ....................       } while (!res && timeout_1us); 
-1488:  BTFSC  xC7.0
-148A:  BRA    149C
-148C:  MOVF   xCC,F
-148E:  BNZ   1440
-1490:  MOVF   xCD,F
-1492:  BNZ   1440
-1494:  MOVF   xCE,F
-1496:  BNZ   1440
-1498:  MOVF   xCF,F
-149A:  BNZ   1440
+14B4:  BTFSC  xC7.0
+14B6:  BRA    14C8
+14B8:  MOVF   xCC,F
+14BA:  BNZ   146C
+14BC:  MOVF   xCD,F
+14BE:  BNZ   146C
+14C0:  MOVF   xCE,F
+14C2:  BNZ   146C
+14C4:  MOVF   xCF,F
+14C6:  BNZ   146C
 ....................       i += packet_size; 
-149C:  MOVF   xCA,W
-149E:  ADDWF  xC5,F
-14A0:  MOVF   xCB,W
-14A2:  ADDWFC xC6,F
+14C8:  MOVF   xCA,W
+14CA:  ADDWF  xC5,F
+14CC:  MOVF   xCB,W
+14CE:  ADDWFC xC6,F
 ....................    } 
-14A4:  BRA    13C8
+14D0:  BRA    13F4
 ....................  
 ....................  
 ....................    //send 0len packet if needed 
 ....................    if (i==len) { 
-14A6:  MOVF   xC2,W
-14A8:  SUBWF  xC5,W
-14AA:  BNZ   1534
-14AC:  MOVF   xC3,W
-14AE:  SUBWF  xC6,W
-14B0:  BNZ   1534
+14D2:  MOVF   xC2,W
+14D4:  SUBWF  xC5,W
+14D6:  BNZ   1560
+14D8:  MOVF   xC3,W
+14DA:  SUBWF  xC6,W
+14DC:  BNZ   1560
 ....................       timeout_1us=(int32)timeout*1000; 
-14B2:  CLRF   xD3
-14B4:  CLRF   xD2
-14B6:  CLRF   xD1
-14B8:  MOVFF  C4,D0
-14BC:  MOVFF  D3,D7
-14C0:  MOVFF  D2,D6
-14C4:  MOVFF  D1,D5
-14C8:  MOVFF  C4,D4
-14CC:  CLRF   xDB
-14CE:  CLRF   xDA
-14D0:  MOVLW  03
-14D2:  MOVWF  xD9
-14D4:  MOVLW  E8
-14D6:  MOVWF  xD8
-14D8:  RCALL  12A6
-14DA:  MOVFF  03,CF
-14DE:  MOVFF  02,CE
-14E2:  MOVFF  01,CD
-14E6:  MOVFF  00,CC
+14DE:  CLRF   xD3
+14E0:  CLRF   xD2
+14E2:  CLRF   xD1
+14E4:  MOVFF  C4,D0
+14E8:  MOVFF  D3,D7
+14EC:  MOVFF  D2,D6
+14F0:  MOVFF  D1,D5
+14F4:  MOVFF  C4,D4
+14F8:  CLRF   xDB
+14FA:  CLRF   xDA
+14FC:  MOVLW  03
+14FE:  MOVWF  xD9
+1500:  MOVLW  E8
+1502:  MOVWF  xD8
+1504:  RCALL  12D2
+1506:  MOVFF  03,CF
+150A:  MOVFF  02,CE
+150E:  MOVFF  01,CD
+1512:  MOVFF  00,CC
 ....................       do { 
 ....................          res = usb_put_packet(endpoint,0,0,USB_DTS_TOGGLE);   //indicate end of message 
-14EA:  MOVFF  BF,D2
-14EE:  CLRF   xD4
-14F0:  CLRF   xD3
-14F2:  CLRF   xD6
-14F4:  CLRF   xD5
-14F6:  MOVLW  02
-14F8:  MOVWF  xD7
-14FA:  RCALL  12FA
-14FC:  BCF    xC7.0
-14FE:  BTFSC  01.0
-1500:  BSF    xC7.0
+1516:  MOVFF  BF,D2
+151A:  CLRF   xD4
+151C:  CLRF   xD3
+151E:  CLRF   xD6
+1520:  CLRF   xD5
+1522:  MOVLW  02
+1524:  MOVWF  xD7
+1526:  RCALL  1326
+1528:  BCF    xC7.0
+152A:  BTFSC  01.0
+152C:  BSF    xC7.0
 ....................          if (!res) { 
-1502:  BTFSC  xC7.0
-1504:  BRA    1520
+152E:  BTFSC  xC7.0
+1530:  BRA    154C
 ....................             delay_us(1); 
-1506:  MOVLW  03
-1508:  MOVWF  00
-150A:  DECFSZ 00,F
-150C:  BRA    150A
-150E:  BRA    1510
+1532:  MOVLW  03
+1534:  MOVWF  00
+1536:  DECFSZ 00,F
+1538:  BRA    1536
+153A:  BRA    153C
 ....................             timeout_1us--; 
-1510:  MOVLW  FF
-1512:  ADDWF  xCC,F
-1514:  BTFSS  FD8.0
-1516:  ADDWF  xCD,F
-1518:  BTFSS  FD8.0
-151A:  ADDWF  xCE,F
-151C:  BTFSS  FD8.0
-151E:  ADDWF  xCF,F
+153C:  MOVLW  FF
+153E:  ADDWF  xCC,F
+1540:  BTFSS  FD8.0
+1542:  ADDWF  xCD,F
+1544:  BTFSS  FD8.0
+1546:  ADDWF  xCE,F
+1548:  BTFSS  FD8.0
+154A:  ADDWF  xCF,F
 ....................          } 
 ....................       } while (!res && timeout_1us); 
-1520:  BTFSC  xC7.0
-1522:  BRA    1534
-1524:  MOVF   xCC,F
-1526:  BNZ   14EA
-1528:  MOVF   xCD,F
-152A:  BNZ   14EA
-152C:  MOVF   xCE,F
-152E:  BNZ   14EA
-1530:  MOVF   xCF,F
-1532:  BNZ   14EA
+154C:  BTFSC  xC7.0
+154E:  BRA    1560
+1550:  MOVF   xCC,F
+1552:  BNZ   1516
+1554:  MOVF   xCD,F
+1556:  BNZ   1516
+1558:  MOVF   xCE,F
+155A:  BNZ   1516
+155C:  MOVF   xCF,F
+155E:  BNZ   1516
 ....................    } 
 ....................  
 ....................    return(res); 
-1534:  MOVLW  00
-1536:  BTFSC  xC7.0
-1538:  MOVLW  01
-153A:  MOVWF  01
+1560:  MOVLW  00
+1562:  BTFSC  xC7.0
+1564:  MOVLW  01
+1566:  MOVWF  01
 .................... } 
-153C:  RETLW  00
+1568:  RETLW  00
 ....................  
 .................... // see usb.h for documentation 
 .................... unsigned int16 usb_gets(int8 endpoint, int8 * ptr, unsigned int16 max, unsigned int16 timeout) { 
@@ -8757,48 +8757,48 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................     
 ....................    char recivido[PACKAGE_LENGTH];    
 ....................  
-.................... #task(rate=300ms, max=10ms) 
+.................... #task(rate=10ms, max=10ms) 
 .................... void checkear_terminal() { 
-....................    #include <terminal_hid.c> 
-.................... if (usb_enumerated()) { 
+....................    //#include <terminal_hid.c> 
+....................    if (usb_enumerated()) { 
 *
 11E2:  RCALL  0DC6
 11E4:  MOVF   01,F
 11E6:  BZ    1264
-....................    if(!avise) { 
+....................       if(!avise) { 
 11E8:  BTFSC  47.0
 11EA:  BRA    1200
-....................       lcd_gotoxy(1,1);printf(lcd_putc ,"Enumere!! :D"); 
+....................          lcd_gotoxy(1,1);printf(lcd_putc ,"Enumere!! :D"); 
 11EC:  MOVLW  01
 11EE:  MOVWF  x7E
 11F0:  MOVWF  x7F
 11F2:  RCALL  0EAA
-11F4:  MOVLW  70
+11F4:  MOVLW  8C
 11F6:  MOVWF  FF6
 11F8:  MOVLW  12
 11FA:  MOVWF  FF7
 11FC:  RCALL  0F72
-....................       avise = true; 
+....................          avise = true; 
 11FE:  BSF    47.0
-....................    } 
-....................    //usb_puts(1,Mensaje,4,100); 
-....................    if (usb_kbhit(1)) { 
+....................       } 
+....................       //usb_puts(1,Mensaje,4,100); 
+....................       if (usb_kbhit(1)) { 
 1200:  MOVLW  01
 1202:  MOVWF  x8B
 1204:  RCALL  0F92
 1206:  MOVF   01,F
 1208:  BZ    1264
-....................       lcd_gotoxy(1,1);printf(lcd_putc ,"kbhit!! :D"); 
+....................          lcd_gotoxy(1,1);printf(lcd_putc ,"kbhit!! :D"); 
 120A:  MOVLW  01
 120C:  MOVWF  x7E
 120E:  MOVWF  x7F
 1210:  RCALL  0EAA
-1212:  MOVLW  7E
+1212:  MOVLW  9A
 1214:  MOVWF  FF6
 1216:  MOVLW  12
 1218:  MOVWF  FF7
 121A:  RCALL  0F72
-....................       usb_gets(1, &recivido, PACKAGE_LENGTH, 100); 
+....................          usb_gets(1, &recivido, PACKAGE_LENGTH, 100); 
 121C:  MOVLW  01
 121E:  MOVWF  x7A
 1220:  CLRF   x7C
@@ -8811,22 +8811,22 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 122E:  MOVLW  64
 1230:  MOVWF  x7F
 1232:  BRA    10CE
-....................       lcd_gotoxy(1,1);printf(lcd_putc ,"                 "); 
+....................          lcd_gotoxy(1,1);printf(lcd_putc ,"                 "); 
 1234:  MOVLW  01
 1236:  MOVWF  x7E
 1238:  MOVWF  x7F
 123A:  RCALL  0EAA
-123C:  MOVLW  8A
+123C:  MOVLW  A6
 123E:  MOVWF  FF6
 1240:  MOVLW  12
 1242:  MOVWF  FF7
 1244:  RCALL  0F72
-....................       lcd_gotoxy(1,1);printf(lcd_putc , "Recivi %s", recivido); 
+....................          lcd_gotoxy(1,1);printf(lcd_putc , "Recivi %s", recivido); 
 1246:  MOVLW  01
 1248:  MOVWF  x7E
 124A:  MOVWF  x7F
 124C:  RCALL  0EAA
-124E:  MOVLW  9C
+124E:  MOVLW  B8
 1250:  MOVWF  FF6
 1252:  MOVLW  12
 1254:  MOVWF  FF7
@@ -8837,162 +8837,178 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 125E:  MOVLW  48
 1260:  MOVWF  FE9
 1262:  BRA    11BC
-....................  
+....................     
+....................       } 
+....................    } 
+....................    if (avise && !usb_enumerated()) { 
+1264:  BTFSS  47.0
+1266:  BRA    1280
+1268:  RCALL  0DC6
+126A:  MOVF   01,F
+126C:  BNZ   1280
+....................       lcd_gotoxy(1,1);printf(lcd_putc ,"Desenumere!! :D"); 
+126E:  MOVLW  01
+1270:  MOVWF  x7E
+1272:  MOVWF  x7F
+1274:  RCALL  0EAA
+1276:  MOVLW  C2
+1278:  MOVWF  FF6
+127A:  MOVLW  12
+127C:  MOVWF  FF7
+127E:  RCALL  0F72
 ....................    } 
 .................... } 
-....................  
-.................... } 
-1264:  MOVLW  E2
-1266:  MOVWF  57
-1268:  MOVLW  11
-126A:  MOVWF  58
-126C:  GOTO   17EA
+1280:  MOVLW  E2
+1282:  MOVWF  57
+1284:  MOVLW  11
+1286:  MOVWF  58
+1288:  GOTO   181A
 ....................  
 .................... #task(rate=1000ms, max=10ms) 
 .................... void hid_heart_beat() { 
 ....................    if(usb_enumerated()) 
 *
-153E:  RCALL  0DC6
-1540:  MOVF   01,F
-1542:  BZ    155A
+156A:  RCALL  0DC6
+156C:  MOVF   01,F
+156E:  BZ    1586
 ....................       usb_puts(1,Mensaje,4,100); 
-1544:  MOVLW  01
-1546:  MOVWF  xBF
-1548:  CLRF   xC1
-154A:  MOVLW  3E
-154C:  MOVWF  xC0
-154E:  CLRF   xC3
-1550:  MOVLW  04
-1552:  MOVWF  xC2
-1554:  MOVLW  64
-1556:  MOVWF  xC4
-1558:  RCALL  13A4
+1570:  MOVLW  01
+1572:  MOVWF  xBF
+1574:  CLRF   xC1
+1576:  MOVLW  3E
+1578:  MOVWF  xC0
+157A:  CLRF   xC3
+157C:  MOVLW  04
+157E:  MOVWF  xC2
+1580:  MOVLW  64
+1582:  MOVWF  xC4
+1584:  RCALL  13D0
 .................... } 
-155A:  MOVLW  3E
-155C:  MOVWF  5E
-155E:  MOVLW  15
-1560:  MOVWF  5F
-1562:  GOTO   17EA
+1586:  MOVLW  6A
+1588:  MOVWF  5E
+158A:  MOVLW  15
+158C:  MOVWF  5F
+158E:  GOTO   181A
 ....................  
 .................... #task(rate=500ms, max=10ms) 
 .................... void heart_beat() { 
 ....................    output_toggle(PIN_ALIM); 
-1566:  BCF    F94.2
-1568:  BTG    F8B.2
+1592:  BCF    F94.2
+1594:  BTG    F8B.2
 .................... } 
-156A:  MOVLW  66
-156C:  MOVWF  x65
-156E:  MOVLW  15
-1570:  MOVWF  x66
-1572:  GOTO   17EA
+1596:  MOVLW  92
+1598:  MOVWF  x65
+159A:  MOVLW  15
+159C:  MOVWF  x66
+159E:  GOTO   181A
 ....................  
 .................... #task(rate=20ms, max=10ms) 
 .................... void mandar_boton() { 
 ....................    if(input(PIN_C7)){ 
-1576:  BSF    F94.7
-1578:  BTFSS  F82.7
-157A:  BRA    1592
+15A2:  BSF    F94.7
+15A4:  BTFSS  F82.7
+15A6:  BRA    15BE
 ....................       usb_puts(1,mensaje_boton1,5,100); 
-157C:  MOVLW  01
-157E:  MOVWF  xBF
-1580:  CLRF   xC1
-1582:  MOVLW  42
-1584:  MOVWF  xC0
-1586:  CLRF   xC3
-1588:  MOVLW  05
-158A:  MOVWF  xC2
-158C:  MOVLW  64
-158E:  MOVWF  xC4
-1590:  RCALL  13A4
+15A8:  MOVLW  01
+15AA:  MOVWF  xBF
+15AC:  CLRF   xC1
+15AE:  MOVLW  42
+15B0:  MOVWF  xC0
+15B2:  CLRF   xC3
+15B4:  MOVLW  05
+15B6:  MOVWF  xC2
+15B8:  MOVLW  64
+15BA:  MOVWF  xC4
+15BC:  RCALL  13D0
 ....................    } 
 ....................    delay_ms(80); 
-1592:  MOVLW  50
-1594:  MOVWF  xBF
-1596:  RCALL  0ED4
+15BE:  MOVLW  50
+15C0:  MOVWF  xBF
+15C2:  RCALL  0ED4
 .................... } 
-1598:  MOVLW  76
-159A:  MOVWF  x6C
-159C:  MOVLW  15
-159E:  MOVWF  x6D
-15A0:  GOTO   17EA
+15C4:  MOVLW  A2
+15C6:  MOVWF  x6C
+15C8:  MOVLW  15
+15CA:  MOVWF  x6D
+15CC:  GOTO   181A
 ....................  
 .................... void main() { 
 *
-169C:  CLRF   FF8
-169E:  BCF    FD0.7
-16A0:  BSF    07.7
-16A2:  CLRF   FEA
-16A4:  CLRF   FE9
-16A6:  CLRF   1F
-16A8:  CLRF   23
-16AA:  CLRF   3C
-16AC:  CLRF   3D
-16AE:  BCF    47.0
-16B0:  MOVF   FC1,W
-16B2:  ANDLW  C0
-16B4:  IORLW  0F
-16B6:  MOVWF  FC1
-16B8:  MOVLW  07
-16BA:  MOVWF  FB4
-16BC:  CLRF   1B
-16BE:  MOVLW  04
-16C0:  MOVWF  1C
-16C2:  MOVLW  0C
-16C4:  MOVWF  1D
-16C6:  MOVLW  48
-16C8:  MOVWF  3E
-16CA:  MOVLW  4F
-16CC:  MOVWF  3F
-16CE:  MOVLW  4C
-16D0:  MOVWF  40
-16D2:  MOVLW  41
-16D4:  MOVWF  41
-16D6:  MOVLW  42
-16D8:  MOVWF  42
-16DA:  MOVLW  4F
-16DC:  MOVWF  43
-16DE:  MOVLW  54
-16E0:  MOVWF  44
-16E2:  MOVLW  4F
-16E4:  MOVWF  45
-16E6:  MOVLW  4E
-16E8:  MOVWF  46
+16C8:  CLRF   FF8
+16CA:  BCF    FD0.7
+16CC:  BSF    07.7
+16CE:  CLRF   FEA
+16D0:  CLRF   FE9
+16D2:  CLRF   1F
+16D4:  CLRF   23
+16D6:  CLRF   3C
+16D8:  CLRF   3D
+16DA:  BCF    47.0
+16DC:  MOVF   FC1,W
+16DE:  ANDLW  C0
+16E0:  IORLW  0F
+16E2:  MOVWF  FC1
+16E4:  MOVLW  07
+16E6:  MOVWF  FB4
+16E8:  CLRF   1B
+16EA:  MOVLW  04
+16EC:  MOVWF  1C
+16EE:  MOVLW  0C
+16F0:  MOVWF  1D
+16F2:  MOVLW  48
+16F4:  MOVWF  3E
+16F6:  MOVLW  4F
+16F8:  MOVWF  3F
+16FA:  MOVLW  4C
+16FC:  MOVWF  40
+16FE:  MOVLW  41
+1700:  MOVWF  41
+1702:  MOVLW  42
+1704:  MOVWF  42
+1706:  MOVLW  4F
+1708:  MOVWF  43
+170A:  MOVLW  54
+170C:  MOVWF  44
+170E:  MOVLW  4F
+1710:  MOVWF  45
+1712:  MOVLW  4E
+1714:  MOVWF  46
 ....................  
 ....................    lcd_init(); 
-16EA:  BRA    15BE
+1716:  BRA    15EA
 ....................  
 ....................    setup_adc_ports(NO_ANALOGS);  // desactivando puertos analogicos    
-16EC:  MOVF   FC1,W
-16EE:  ANDLW  C0
-16F0:  IORLW  0F
-16F2:  MOVWF  FC1
+1718:  MOVF   FC1,W
+171A:  ANDLW  C0
+171C:  IORLW  0F
+171E:  MOVWF  FC1
 ....................    //set_tris_b(0x0);              // configurando los puertos como salidas 
 ....................    //output_b (0);                 // saca un nivel bajo de salida en los puertos 
 ....................  
 ....................  
 ....................    lcd_gotoxy(1,1);printf(lcd_putc ,"Espero... 1"); 
-16F4:  MOVLW  01
-16F6:  MOVWF  x7E
-16F8:  MOVWF  x7F
-16FA:  CALL   0EAA
-16FE:  MOVLW  A4
-1700:  MOVWF  FF6
-1702:  MOVLW  15
-1704:  MOVWF  FF7
-1706:  RCALL  0F72
+1720:  MOVLW  01
+1722:  MOVWF  x7E
+1724:  MOVWF  x7F
+1726:  CALL   0EAA
+172A:  MOVLW  D0
+172C:  MOVWF  FF6
+172E:  MOVLW  15
+1730:  MOVWF  FF7
+1732:  RCALL  0F72
 ....................    usb_init(); //inicializa y espera a ser encendido 
-1708:  BRA    168E
+1734:  BRA    16BA
 ....................    //usb_task (); //lucas! 
 ....................    lcd_gotoxy(1,1);printf(lcd_putc ,"Inicializado"); 
-170A:  MOVLW  01
-170C:  MOVWF  x7E
-170E:  MOVWF  x7F
-1710:  CALL   0EAA
-1714:  MOVLW  B0
-1716:  MOVWF  FF6
-1718:  MOVLW  15
-171A:  MOVWF  FF7
-171C:  RCALL  0F72
+1736:  MOVLW  01
+1738:  MOVWF  x7E
+173A:  MOVWF  x7F
+173C:  CALL   0EAA
+1740:  MOVLW  DC
+1742:  MOVWF  FF6
+1744:  MOVLW  15
+1746:  MOVWF  FF7
+1748:  RCALL  0F72
 ....................     
 ....................    //usb_wait_for_enumeration(); //ahora espera hasta ser enumerado (reconocido por la PC)     
 ....................    //lcd_gotoxy(1,1);printf(lcd_putc ,"Enumere!! :D"); 
@@ -9004,117 +9020,119 @@ CCS PCH C Compiler, Version 4.104, 5967               18-oct-14 11:29
 ....................    */ 
 ....................     
 ....................    rtos_run(); 
-171E:  CLRF   52
-1720:  CLRF   54
-1722:  MOVLW  1E
-1724:  MOVWF  53
-1726:  CLRF   56
-1728:  CLRF   55
-172A:  MOVLW  E2
-172C:  MOVWF  57
-172E:  MOVLW  11
-1730:  MOVWF  58
-1732:  CLRF   59
-1734:  CLRF   5B
-1736:  MOVLW  64
-1738:  MOVWF  5A
-173A:  CLRF   5D
-173C:  CLRF   5C
-173E:  MOVLW  3E
-1740:  MOVWF  5E
-1742:  MOVLW  15
-1744:  MOVWF  5F
-1746:  CLRF   x60
-1748:  CLRF   x62
-174A:  MOVLW  32
-174C:  MOVWF  x61
-174E:  CLRF   x64
-1750:  CLRF   x63
-1752:  MOVLW  66
-1754:  MOVWF  x65
-1756:  MOVLW  15
-1758:  MOVWF  x66
-175A:  CLRF   x67
-175C:  CLRF   x69
-175E:  MOVLW  02
-1760:  MOVWF  x68
-1762:  CLRF   x6B
-1764:  CLRF   x6A
-1766:  MOVLW  76
-1768:  MOVWF  x6C
-176A:  MOVLW  15
-176C:  MOVWF  x6D
-176E:  CLRF   25
-1770:  MOVLW  80
-1772:  MOVWF  FD5
-1774:  MOVLW  3C
-1776:  MOVWF  FD7
-1778:  MOVLW  B0
-177A:  MOVWF  FD6
-177C:  BCF    FF2.2
-177E:  MOVLW  80
-1780:  MOVWF  FD5
-1782:  MOVLW  3C
-1784:  MOVWF  FD7
-1786:  MOVLW  B0
-1788:  MOVWF  FD6
-178A:  BCF    FF2.2
-178C:  BCF    FD8.0
-178E:  RLCF   25,W
-1790:  MOVWF  00
-1792:  CALL   0220
-1796:  MOVWF  02
-1798:  MOVLW  01
-179A:  ADDWF  00,W
-179C:  CALL   0220
-17A0:  MOVWF  03
-17A2:  MOVFF  03,FEA
-17A6:  MOVFF  02,FE9
-17AA:  MOVFF  FEF,02
-17AE:  INCF   FE9,F
-17B0:  MOVFF  FEF,00
-17B4:  MOVFF  FEC,01
-17B8:  INCF   FEC,F
-17BA:  MOVFF  FEF,03
-17BE:  BNZ   17C4
-17C0:  INCF   FEC,F
-17C2:  MOVF   FED,F
-17C4:  MOVF   FEC,W
-17C6:  SUBWF  01,W
-17C8:  BNZ   17EC
-17CA:  MOVF   00,W
-17CC:  SUBWF  03,W
-17CE:  BNZ   17EC
-17D0:  MOVF   FED,F
-17D2:  MOVF   FED,F
-17D4:  CLRF   FEE
-17D6:  CLRF   FEE
-17D8:  BTFSC  02.7
-17DA:  BRA    17EC
-17DC:  MOVF   FEC,F
-17DE:  MOVFF  FEC,FFA
-17E2:  MOVF   FED,F
-17E4:  MOVFF  FEF,FE8
-17E8:  MOVWF  FF9
-17EA:  MOVLB  0
-17EC:  INCF   25,F
-17EE:  MOVLW  04
-17F0:  SUBWF  25,W
-17F2:  BNZ   178C
-17F4:  CLRF   25
-17F6:  MOVF   FD6,W
-17F8:  MOVFF  FD7,03
-17FC:  BTFSC  FF2.2
-17FE:  BRA    1782
-1800:  BRA    17F6
-1802:  MOVLW  FF
-1804:  MOVWF  25
+174A:  CLRF   52
+174C:  CLRF   54
+174E:  MOVLW  01
+1750:  MOVWF  53
+1752:  CLRF   56
+1754:  CLRF   55
+1756:  MOVLW  E2
+1758:  MOVWF  57
+175A:  MOVLW  11
+175C:  MOVWF  58
+175E:  CLRF   59
+1760:  CLRF   5B
+1762:  MOVLW  64
+1764:  MOVWF  5A
+1766:  CLRF   5D
+1768:  MOVLW  03
+176A:  MOVWF  5C
+176C:  MOVLW  6A
+176E:  MOVWF  5E
+1770:  MOVLW  15
+1772:  MOVWF  5F
+1774:  CLRF   x60
+1776:  CLRF   x62
+1778:  MOVLW  32
+177A:  MOVWF  x61
+177C:  CLRF   x64
+177E:  MOVLW  01
+1780:  MOVWF  x63
+1782:  MOVLW  92
+1784:  MOVWF  x65
+1786:  MOVLW  15
+1788:  MOVWF  x66
+178A:  CLRF   x67
+178C:  CLRF   x69
+178E:  MOVLW  02
+1790:  MOVWF  x68
+1792:  CLRF   x6B
+1794:  CLRF   x6A
+1796:  MOVLW  A2
+1798:  MOVWF  x6C
+179A:  MOVLW  15
+179C:  MOVWF  x6D
+179E:  CLRF   25
+17A0:  MOVLW  80
+17A2:  MOVWF  FD5
+17A4:  MOVLW  3C
+17A6:  MOVWF  FD7
+17A8:  MOVLW  B0
+17AA:  MOVWF  FD6
+17AC:  BCF    FF2.2
+17AE:  MOVLW  80
+17B0:  MOVWF  FD5
+17B2:  MOVLW  3C
+17B4:  MOVWF  FD7
+17B6:  MOVLW  B0
+17B8:  MOVWF  FD6
+17BA:  BCF    FF2.2
+17BC:  BCF    FD8.0
+17BE:  RLCF   25,W
+17C0:  MOVWF  00
+17C2:  CALL   0220
+17C6:  MOVWF  02
+17C8:  MOVLW  01
+17CA:  ADDWF  00,W
+17CC:  CALL   0220
+17D0:  MOVWF  03
+17D2:  MOVFF  03,FEA
+17D6:  MOVFF  02,FE9
+17DA:  MOVFF  FEF,02
+17DE:  INCF   FE9,F
+17E0:  MOVFF  FEF,00
+17E4:  MOVFF  FEC,01
+17E8:  INCF   FEC,F
+17EA:  MOVFF  FEF,03
+17EE:  BNZ   17F4
+17F0:  INCF   FEC,F
+17F2:  MOVF   FED,F
+17F4:  MOVF   FEC,W
+17F6:  SUBWF  01,W
+17F8:  BNZ   181C
+17FA:  MOVF   00,W
+17FC:  SUBWF  03,W
+17FE:  BNZ   181C
+1800:  MOVF   FED,F
+1802:  MOVF   FED,F
+1804:  CLRF   FEE
+1806:  CLRF   FEE
+1808:  BTFSC  02.7
+180A:  BRA    181C
+180C:  MOVF   FEC,F
+180E:  MOVFF  FEC,FFA
+1812:  MOVF   FED,F
+1814:  MOVFF  FEF,FE8
+1818:  MOVWF  FF9
+181A:  MOVLB  0
+181C:  INCF   25,F
+181E:  MOVLW  04
+1820:  SUBWF  25,W
+1822:  BNZ   17BC
+1824:  CLRF   25
+1826:  MOVF   FD6,W
+1828:  MOVFF  FD7,03
+182C:  BTFSC  FF2.2
+182E:  BRA    17B2
+1830:  BRA    1826
+1832:  MOVLW  FF
+1834:  MOVWF  25
 ....................    while (true) {       
 ....................        
 ....................    } 
-1806:  BRA    1806
+1836:  BRA    1836
 .................... } 
-1808:  SLEEP 
+1838:  SLEEP 
 
 Configuration Fuses:
    Word  1: CE24   IESO FCMEN HSPLL PLL5 CPUDIV1 USBDIV

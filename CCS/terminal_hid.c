@@ -12,3 +12,6 @@ if (usb_enumerated()) {
 
    }
 }
+if (avise && !usb_enumerated()) {
+   lcd_gotoxy(1,1);printf(lcd_putc ,"Desenumere!! :D");
+}

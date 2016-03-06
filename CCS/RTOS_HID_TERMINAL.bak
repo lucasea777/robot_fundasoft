@@ -78,14 +78,14 @@
    int8 send_timer=0;
    int8 contador=0;
    char Mensaje[4]={'H','O','L','A'};
-   char mensaje_boton1[4]={'B','O','T','O','N'};
+   char mensaje_boton1[5]={'B','O','T','O','N'};
    int1 avise = false;
    
    char recivido[PACKAGE_LENGTH];   
 
 #task(rate=300ms, max=10ms)
 void checkear_terminal() {
-   #include <terminal_hid.c>
+   //#include <terminal_hid.c>
 }
 
 #task(rate=1000ms, max=10ms)
@@ -132,6 +132,22 @@ void main() {
    
    rtos_run();
    while (true) {      
+      if (usb_enumerated()) {
+         if(!avise) {
+            lcd_gotoxy(1,1);printf(lcd_putc ,"Enumere!! :D");
+            avise = true;
+         }
+         //usb_puts(1,Mensaje,4,100);
+         if (usb_kbhit(1)) {
+            lcd_gotoxy(1,1);printf(lcd_putc ,"kbhit!! :D");
+            usb_gets(1, &recivido, PACKAGE_LENGTH, 100);
+            lcd_gotoxy(1,1);printf(lcd_putc ,"                 ");
+            lcd_gotoxy(1,1);printf(lcd_putc , "Recivi %s", recivido);
       
+         }
+       }
+      if (avise && !usb_enumerated()) {
+         lcd_gotoxy(1,1);printf(lcd_putc ,"Desenumere!! :D");
+      }
    }
 }

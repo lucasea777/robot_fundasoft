@@ -1,6 +1,6 @@
 
-ROM used: 6154 (19%)
-          6154 (19%) including unused fragments
+ROM used: 6202 (19%)
+          6202 (19%) including unused fragments
 
           1 Average locations per line
           9 Average locations per statement
@@ -12,18 +12,17 @@ Stack used: 15 worst case (out of 31 total available)
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  138    17   2  RTOS_HID_TERMINAL.c
-  392     0   0  C:\Program Files (x86)\PICC\devices\18f2550.h
-  284    86  13  lib\flex_lcd_2.c
-  222     0   0  C:\Program Files (x86)\PICC\drivers\pic18_usb.h
-  328     0   0  C:\Program Files (x86)\PICC\drivers\usb_hw_layer.h
+  155    37   5  RTOS_HID_TERMINAL.c
+  392     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\devices\18f2550.h
+  284    86  12  lib\flex_lcd_2.c
+  222     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\pic18_usb.h
+  328     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\usb_hw_layer.h
   361     0   0  lib\usb_desc_hid.h
- 1063     0   0  C:\Program Files (x86)\PICC\drivers\usb.h
-  808   246  36  C:\Program Files (x86)\PICC\drivers\usb.c
- 1281   320  47  C:\Program Files (x86)\PICC\drivers\pic18_usb.c
-   15    16   2  terminal_hid.c
+ 1063     0   0  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\usb.h
+  808   246  36  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\usb.c
+ 1281   320  46  ..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\drivers\pic18_usb.c
 ----- -----
- 4892   685 Total
+ 4894   689 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -94,40 +93,41 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     14   0   0    76  1.8  usb_finish_set_address
 0    150   1   4   671  8.3  usb_copy_desc_seg_to_ep
 0     34   0   0             @goto11167
-0    142   1   0   461  3.7  checkear_terminal
-0     14   0   0             @const420
-0     32   0   2             @PSTRINGC_87
-0     12   0   0             @const422
-0     18   0   0    59  1.9  @const423
-0     10   0   0   202  2.1  @const424
+0    170   1   0   598  4.2  checkear_terminal
+0     14   0   0    59  1.9  @const420
+0     32   0   2    17  0.8  @PSTRINGC_87
+0     12   0   0    88  2.0  @const422
+0     18   0   0   897  4.8  @const423
+0     10   0   0             @const424
 0     32   0   3             @PSTRINGCN_87
 0     38   0   2             @PSTRINGR_87
+0     16   0   0             @const428
 0     40   0   0    59  1.9  hid_heart_beat
 0     16   0   0    17  0.8  heart_beat
 0     46   0   0    88  2.0  mandar_boton
-0    366   3   0   202  2.1  MAIN
-0     12   0   0             @const436
-0     14   0   0             @const437
-0     34   0   0             @const438
+0    370   3   0   202  2.1  MAIN
+0     12   0   0             @const437
+0     14   0   0             @const438
+0     34   0   0             @const439
 
 Program metrics:
-    Functions               60
-    Statements              685
-    Comments                2293
-    Volume (V)              44413
-    Difficilty (D)          260.0
-    Effort to implement (E) 11548845
-    Time to implement (T)   178 hours, 13 minutes
-    Est Delivered Bugs (B)  17
-    Cyclomatic Complexity   138
-    Maintainability (MI)    89
+    Functions               62
+    Statements              689
+    Comments                2251
+    Volume (V)              46280
+    Difficilty (D)          266.7
+    Effort to implement (E) 12345125
+    Time to implement (T)   190 hours, 31 minutes
+    Est Delivered Bugs (B)  18
+    Cyclomatic Complexity   144
+    Maintainability (MI)    102
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-00006     4  0  
 00008-00094   142  0  
-00096-07FFE  6004  26614  
+00096-07FFE  6052  26566  
 
 
 

@@ -6,7 +6,7 @@ if (usb_enumerated()) {
    //usb_puts(1,Mensaje,4,100);
    if (usb_kbhit(1)) {
       lcd_gotoxy(1,1);printf(lcd_putc ,"kbhit!! :D");
-      usb_gets(1, &recivido, 4, 100);
+      usb_gets(1, &recivido, PACKAGE_LENGTH, 100);
       lcd_gotoxy(1,1);printf(lcd_putc ,"                 ");
       lcd_gotoxy(1,1);printf(lcd_putc , "Recivi %s", recivido);
 

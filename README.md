@@ -31,4 +31,10 @@ El smartphone solo servira como puente (wifi<->usb).
 Para esto se expandira una [terminal HID de codigo abierto](https://github.com/452/USBHIDTerminal) agregandole sockets.
 
 ###PIC
-Se utilizara el microcontrolador pic 18F2550/4550
+Se utilizara el microcontrolador pic 18F2550/4550 en lenguaje C utilizando como 
+IDE a PIC CCS COMPILER  (tristicisimamente sw propietario) y como EDA a Kicad
+El diagrama PDF de proteus es el mas exacto, estoy en proceso de copiar protoboard.dsn
+a auto.sch (kicad)
+
+#Manos a la obra
+
