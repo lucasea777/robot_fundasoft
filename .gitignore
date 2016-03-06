@@ -1,1 +1,10 @@
 *~
+*.sta
+*.sym
+*.tre
+*.lst
+*.cof
+*.cod
+*.err
+*.esym
+*.bak
