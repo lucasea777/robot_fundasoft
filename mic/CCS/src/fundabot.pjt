@@ -1,10 +1,10 @@
 [PROJECT]
-Target=RTOS_HID_TERMINAL.hex
+Target=fundabot.hex
 Development_Mode=
 Processor_Text=PIC18F2550
 ToolSuite=CCS
 Processor=0x2550
-[RTOS_HID_TERMINAL]
+[fundabot]
 Type=4
 Path=
 FileList=
@@ -12,17 +12,17 @@ BuildTool=
 OptionString=
 AdditionalOptionString=
 [mru-list]
-1=RTOS_HID_TERMINAL.c
+1=fundabot.c
 [Windows]
 0=0000 %S 0 0 796 451 3 0
 [Opened Files]
-1=RTOS_HID_TERMINAL.c
+1=fundabot.c
 2=terminal_hid.c
 3=
 4=
 [Target Data]
 OptionString=-p +FH
-FileList=C:\users\luks\My Documents\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\CCS\RTOS_HID_TERMINAL.c
+FileList=Z:\home\luks\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\mic\CCS\src\fundabot.c
 [Units]
 Count=1
-1=RTOS_HID_TERMINAL (main)
+1=fundabot (main)
