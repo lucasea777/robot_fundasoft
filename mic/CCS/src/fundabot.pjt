@@ -22,7 +22,7 @@ AdditionalOptionString=
 4=
 [Target Data]
 OptionString=-p +FH
-FileList=Z:\home\luks\Documents\Fundasoft\Fundasoft\Electronica_2016\Auto\mic\CCS\src\fundabot.c
+FileList=Z:\home\luks\Documents\Fundasoft\Fundasoft\Electronica_2016\fundabot\mic\CCS\src\fundabot.c
 [Units]
 Count=1
 1=fundabot (main)
