@@ -1,8 +1,8 @@
 // fuente: http://www.forosdeelectronica.com/f24/envio-hola-ccs-usb-atraves-hid-18f2550-46955/
 // no es necesario modificar otro archivo aparte de este!!!!!
 
-//comentar si se esta usando la pcb en vez de la proto!
-#define PROTOBOARD
+//comentar si se esta usando la CPU_5 en vez de la proto!
+//#define PROTOBOARD
 
 #ifdef PROTOBOARD
 #include <18f2550.h>           //archivo de cabecera
@@ -17,7 +17,7 @@
 //#use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7, BITS=8) //para debuguear las salidas del printf,puts etc.
 
 #ifdef PROTOBOARD
-#include <\lib\flex_lcd_2.c>
+//#include <\lib\flex_lcd_2.c>
 #endif PROTOBOARD
 
 #define USB_CONFIG_HID_RX_SIZE 10  //lucas!!!
@@ -82,8 +82,8 @@
 	#define PIN_HEART pin_a1
 	#define PIN_ENUMERATED pin_a0
 #else
-	#define PIN_HEART pin_c2
-	#define PIN_ENUMERATED 
+	#define PIN_HEART pin_d0
+	#define PIN_ENUMERATED pin_d1
 #endif
 
 #define PACKAGE_LENGTH 10
@@ -143,7 +143,7 @@ void mandar_boton() {
    //if(input(PIN_C7)){
    //   usb_puts(1,mensaje_boton1,5,100);
    //}
-   delay_ms(80);
+   //delay_ms(80);
 }
 
 void main() {
