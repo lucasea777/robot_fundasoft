@@ -2,7 +2,7 @@
 // no es necesario modificar otro archivo aparte de este!!!!!
 
 //comentar si se esta usando la CPU_5 en vez de la proto!
-//#define PROTOBOARD
+//#define PROTOBOARD //ACA Y EN FUNDABOT.H
 
 #ifdef PROTOBOARD
 #include <18f2550.h>           //archivo de cabecera
@@ -17,8 +17,8 @@
 //#use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7, BITS=8) //para debuguear las salidas del printf,puts etc.
 
 #ifdef PROTOBOARD
-//#include <\lib\flex_lcd_2.c>
-#endif PROTOBOARD
+#include <\lib\flex_lcd_2.c>
+#endif
 
 #define USB_CONFIG_HID_RX_SIZE 10  //lucas!!!
 #define USB_CONFIG_HID_TX_SIZE 10  //lucas!!!
@@ -107,7 +107,7 @@ void checkear_terminal() {
       if(!avise) {
       	 #ifdef PROTOBOARD
          lcd_gotoxy(1,1);printf(lcd_putc ,"Enumere!! :D"); //<<protoboard>>
-         #endif PROTOBOARD
+         #endif
          output_high(PIN_ENUMERATED);
          avise = true;
       }
@@ -143,7 +143,7 @@ void mandar_boton() {
    //if(input(PIN_C7)){
    //   usb_puts(1,mensaje_boton1,5,100);
    //}
-   //delay_ms(80);
+   delay_ms(80);
 }
 
 void main() {

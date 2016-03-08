@@ -1,7 +1,0 @@
-#!/bin/bash
-#export PATH
-#name=$(echo ./src/*.hex)
-#IN=$name
-#arrIN=(${IN//;/ })
-#pk2cmd -ppic18f2550 -f$arrIN -m
-PATH=$PATH:/usr/share/pk2/ pk2cmd -ppic18f2550 -ffundabot.hex -m

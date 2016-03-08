@@ -3,7 +3,7 @@ Target=fundabot.hex
 Development_Mode=
 Processor_Text=PIC18F2550
 ToolSuite=CCS
-Processor=0x2550
+Processor=0x4550
 [fundabot]
 Type=4
 Path=

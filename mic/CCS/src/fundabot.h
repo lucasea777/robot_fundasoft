@@ -1,4 +1,4 @@
-#define PROTOBOARD
+//#define PROTOBOARD
 #ifdef PROTOBOARD
 #include <18F2550.h>           //archivo de cabecera
 #else
