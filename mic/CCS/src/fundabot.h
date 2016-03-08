@@ -1,4 +1,9 @@
-#include <18F2550.h>
+#define PROTOBOARD
+#ifdef PROTOBOARD
+#include <18F2550.h>           //archivo de cabecera
+#else
+#include <18F4550.h>           //archivo de cabecera
+#endif
 #device adc=8
 
 #FUSES NOWDT                 	//No Watch Dog Timer

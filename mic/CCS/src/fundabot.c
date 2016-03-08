@@ -3,12 +3,17 @@
 
 //comentar si se esta usando la pcb en vez de la proto!
 #define PROTOBOARD
+
+#ifdef PROTOBOARD
 #include <18f2550.h>           //archivo de cabecera
+#else
+#include <18f4550.h>           //archivo de cabecera
+#endif
 
 //#fuses HSPLL,MCLR,NOWDT,NOPROTECT,NOLVP,NODEBUG,USBDIV,PLL5,CPUDIV1,NOVREGEN,NOPBADEN // fuses  configurados
 #fuses hspll,nowdt,noprotect,nolvp,nodebug,usbdiv,pll5,cpudiv1,vregen,nomclr      //cdc FUNCIONA! :D
 
-#use delay(clock=48000000)     // el clock que tendremos a la entrada del CPU compatible con USB 2.0
+#use delay(clock=20000000)     // el clock que tendremos a la entrada del CPU compatible con USB 2.0
 //#use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7, BITS=8) //para debuguear las salidas del printf,puts etc.
 
 #ifdef PROTOBOARD
@@ -73,7 +78,13 @@
 //usb_gets()    
 //             como el gets serial solo que este es USB usa la funcion get packet 
 
-#define PIN_ALIM pin_c2
+#ifdef PROTOBOARD
+	#define PIN_HEART pin_a1
+	#define PIN_ENUMERATED pin_a0
+#else
+	#define PIN_HEART pin_c2
+	#define PIN_ENUMERATED 
+#endif
 
 #define PACKAGE_LENGTH 10
 
@@ -97,6 +108,7 @@ void checkear_terminal() {
       	 #ifdef PROTOBOARD
          lcd_gotoxy(1,1);printf(lcd_putc ,"Enumere!! :D"); //<<protoboard>>
          #endif PROTOBOARD
+         output_high(PIN_ENUMERATED);
          avise = true;
       }
       //usb_puts(1,Mensaje,4,100);
@@ -123,14 +135,14 @@ void hid_heart_beat() {
 
 #task(rate=500ms, max=10ms)
 void heart_beat() {
-   output_toggle(PIN_ALIM);
+   output_toggle(PIN_HEART);
 }
 
 #task(rate=20ms, max=10ms)
 void mandar_boton() {
-   if(input(PIN_C7)){
-      usb_puts(1,mensaje_boton1,5,100);
-   }
+   //if(input(PIN_C7)){
+   //   usb_puts(1,mensaje_boton1,5,100);
+   //}
    delay_ms(80);
 }
 
@@ -158,7 +170,7 @@ void main() {
       delay_ms(500);
    }
    */
-   
+   output_high(PIN_HEART);
    rtos_run();
    while (true) {      
       
