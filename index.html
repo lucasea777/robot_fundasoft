@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Open the console!</h1>
+<script>
+var mySocket = new WebSocket(urlMySocket);mySocket.onmessage = function (evt) { console.log(evt.data)}; function ping(){mySocket.send("get");}; mySocket.onopen = function(){var inter = setInterval(ping,3000)}
+</script>
+<input type="text"></input>
+</body>
+</html>
