@@ -160,13 +160,9 @@ void checkear_terminal() {
          if (strncmp(recivido,cmd_set,4)) {
          	if (recivido[4] != 'x') {
          		if (recivido[4] == '1') {
-         			char tmp[] = "IN1 high";
-         			usb_puts(1,tmp,8,100);
          			output_high(PIN_IN1);
          		}
          		else if (recivido[4] == '0') {
-         			char tmp[] = "IN1 low";
-         			usb_puts(1,tmp,7,100);
          			output_low(PIN_IN1);
          		} else
          			usb_puts(1,sintaxerr,9,100);
