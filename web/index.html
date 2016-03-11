@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	html, body {
+		overflow: hidden;
+	}
+	.controls {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 200px;
+		height: 100%;
+	}
+	</style>
+</head>
+<body>
+<script>
+var mySocket;
+function connect() {
+	var ip = document.getElementById("ip").value;
+	document.getElementById("camera").src = "http://"+ip+":8080/video"
+	var urlMySocket = "ws://"+ip+":7799/websocket";
+	mySocket = new WebSocket(urlMySocket);
+	mySocket.onmessage = function (evt) { 
+		console.log(evt.data)
+	}; 
+	function ping(){mySocket.send("get");}; 
+	mySocket.onopen = function(){var inter = setInterval(ping,3000)}
+}
+
+function sendd(cmd) {
+	console.log("Trying to send: "+ cmd);
+	mySocket.send(cmd);
+}
+
+document.onkeydown = checkKey;
+window.onkeyup = function(e)  {
+	var e = e || window.event;
+	console.log(e.keyCode);
+	if ([38,40,37,39].indexOf(e.keyCode) > -1) {
+		var cmd = document.getElementById("keyup_cmd").value;
+        sendd(cmd)
+	}
+}
+
+function checkKey(e) {
+    var e = e || window.event;
+    if (e.keyCode == '38') {
+    	var cmd = document.getElementById("up_cmd").value;
+        sendd(cmd)
+    }
+    else if (e.keyCode == '40') {
+        var cmd = document.getElementById("down_cmd").value;
+        sendd(cmd)
+    }
+    else if (e.keyCode == '37') {
+       var cmd = document.getElementById("left_cmd").value;
+       sendd(cmd)
+    }
+    else if (e.keyCode == '39') {
+       var cmd = document.getElementById("right_cmd").value;
+       sendd(cmd)
+    }
+
+}
+</script>
+<iframe id="camera" width="800" height="800"></iframe>
+<div class="controls">
+	ip:<input id="ip" value="192.168.1.4"></input><br>	
+	<-<input id="left_cmd"></input><br>
+	^<input id="up_cmd"></input><br>
+	-><input id="right_cmd"></input><br>
+	\/<input id="down_cmd"></input><br>
+	keyup:<input id="keyup_cmd"></input><br>
+	<input type="button" onclick="connect()" value="Connect!!"></input>
+</div>
+</body>
+</html>
