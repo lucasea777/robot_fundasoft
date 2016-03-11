@@ -84,6 +84,12 @@
 #else
 	#define PIN_HEART pin_d0
 	#define PIN_ENUMERATED pin_d1
+	#define PIN_ENABLE pin_d7
+	#define PIN_IN4 pin_d6
+	#define PIN_IN3 pin_d5
+	#define PIN_IN2 pin_d4
+	#define PIN_IN1 pin_d3
+	//#define PIN_ENABLE pin_d2
 #endif
 
 #define PACKAGE_LENGTH 10
@@ -99,6 +105,16 @@
    int1 avise = false;
    
    char recivido[PACKAGE_LENGTH];   
+
+int strncmp(char * str1, char * str2, int len);
+
+int strncmp(char * str1, char * str2, int len) {
+	int i = 0;
+	for (i = 0; i < len; ++i)
+		if (str1[i] != str2[i])
+			return 0;
+	return 1;
+}
 
 #task(rate=10ms, max=10ms)
 void checkear_terminal() {
@@ -119,7 +135,14 @@ void checkear_terminal() {
          lcd_gotoxy(1,1);printf(lcd_putc ,"                 ");
          lcd_gotoxy(1,1);printf(lcd_putc , "Recivi %s", recivido);
          #endif
-   
+         char cmp[3] = "IN4";
+         usb_puts(1,recivido,PACKAGE_LENGTH,100); //package length esta bien o mando basura?
+         char wi[3] = "wii";
+         if (strncmp(recivido,cmp,3)) {
+         	output_toggle(PIN_IN4);
+         	usb_puts(1,wi,3,100); //package length esta bien o mando basura?
+
+         }
       }
    }
    /*if (avise && !usb_enumerated()) {   	
@@ -170,6 +193,7 @@ void main() {
       delay_ms(500);
    }
    */
+   output_high(PIN_ENABLE);
    output_high(PIN_HEART);
    rtos_run();
    while (true) {      
