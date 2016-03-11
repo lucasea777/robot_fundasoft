@@ -10,6 +10,7 @@
 #include <18f4550.h>           //archivo de cabecera
 #endif
 
+#include <stdlibm.h>
 //#fuses HSPLL,MCLR,NOWDT,NOPROTECT,NOLVP,NODEBUG,USBDIV,PLL5,CPUDIV1,NOVREGEN,NOPBADEN // fuses  configurados
 #fuses hspll,nowdt,noprotect,nolvp,nodebug,usbdiv,pll5,cpudiv1,vregen,nomclr      //cdc FUNCIONA! :D
 
@@ -84,11 +85,11 @@
 #else
 	#define PIN_HEART pin_d0
 	#define PIN_ENUMERATED pin_d1
-	#define PIN_ENABLE pin_d7
-	#define PIN_IN4 pin_d6
-	#define PIN_IN3 pin_d5
-	#define PIN_IN2 pin_d4
-	#define PIN_IN1 pin_d3
+	#define PIN_ENABLE pin_d6
+	#define PIN_IN4 pin_d5
+	#define PIN_IN3 pin_d4
+	#define PIN_IN2 pin_d3
+	#define PIN_IN1 pin_d2
 	//#define PIN_ENABLE pin_d2
 #endif
 
@@ -105,16 +106,27 @@
    int1 avise = false;
    
    char recivido[PACKAGE_LENGTH];   
+   //char * recivido = malloc(PACKAGE_LENGTH * 1);
 
-int strncmp(char * str1, char * str2, int len);
-
-int strncmp(char * str1, char * str2, int len) {
+int strncmp(char * str1, char * str2, int len) { //agregar soporte \0
 	int i = 0;
 	for (i = 0; i < len; ++i)
 		if (str1[i] != str2[i])
 			return 0;
 	return 1;
 }
+
+int contains_char(char * str, char ch, int len) {
+	int i = 0;
+	for (i = 0; i < len; ++i)
+		if (str[i] == ch)
+			return 1;
+	return 0;
+}
+
+/*int exec(char * cmd) {
+
+}*/
 
 #task(rate=10ms, max=10ms)
 void checkear_terminal() {
@@ -129,19 +141,81 @@ void checkear_terminal() {
       }
       //usb_puts(1,Mensaje,4,100);
       if (usb_kbhit(1)) {
-      	usb_gets(1, &recivido, PACKAGE_LENGTH, 100);
+      	int nlecturas = 1;
+      	//while(!contains_char(recivido,'f',PACKAGE_LENGTH*nlecturas)) {
+      		usb_gets(1, &recivido, PACKAGE_LENGTH, 100);
+      	//}
          #ifdef PROTOBOARD
          lcd_gotoxy(1,1);printf(lcd_putc ,"kbhit!! :D");
          lcd_gotoxy(1,1);printf(lcd_putc ,"                 ");
          lcd_gotoxy(1,1);printf(lcd_putc , "Recivi %s", recivido);
          #endif
-         char cmp[3] = "IN4";
          usb_puts(1,recivido,PACKAGE_LENGTH,100); //package length esta bien o mando basura?
-         char wi[3] = "wii";
-         if (strncmp(recivido,cmp,3)) {
-         	output_toggle(PIN_IN4);
-         	usb_puts(1,wi,3,100); //package length esta bien o mando basura?
-
+         //char cmpIN4[3] = "IN4";
+         char cmd_set[4] = "set ";
+         char cmd_get[3] = "get";
+         //input_state(pin_a0);
+         char sintaxerr[9] = "sintaxerr";
+         char wrong[5] = "what?";
+         if (strncmp(recivido,cmd_set,4)) {
+         	if (recivido[4] != 'x') {
+         		if (recivido[4] == '1') {
+         			char tmp[] = "IN1 high";
+         			usb_puts(1,tmp,8,100);
+         			output_high(PIN_IN1);
+         		}
+         		else if (recivido[4] == '0') {
+         			char tmp[] = "IN1 low";
+         			usb_puts(1,tmp,7,100);
+         			output_low(PIN_IN1);
+         		} else
+         			usb_puts(1,sintaxerr,9,100);
+         	}         	 	
+         	if (recivido[5] != 'x') {
+         		if (recivido[5] == '1')
+         			output_high(PIN_IN2);
+         		else if (recivido[5] == '0')
+         			output_low(PIN_IN2);
+         		else
+         			usb_puts(1,sintaxerr,9,100);
+         	}         	
+         	if (recivido[6] != 'x') {
+         		if (recivido[6] == '1')
+         			output_high(PIN_IN3);
+         		else if (recivido[6] == '0')
+         			output_low(PIN_IN3);
+         		else
+         			usb_puts(1,sintaxerr,9,100);
+         	}         	
+         	if (recivido[7] != 'x') {
+         		if (recivido[7] == '1')
+         			output_high(PIN_IN4);
+         		else if (recivido[7] == '0')
+         			output_low(PIN_IN4);
+         		else
+         			usb_puts(1,sintaxerr,9,100);
+         	}         	
+         	char output[7];
+         	output[0] = 'O';
+         	output[1] = 'K';
+         	output[2] = ' ';
+         	output[3] = input_state(PIN_IN1) ? '1' : '0';
+         	output[4] = input_state(PIN_IN2) ? '1' : '0';
+         	output[5] = input_state(PIN_IN3) ? '1' : '0';
+         	output[6] = input_state(PIN_IN4) ? '1' : '0';
+         	usb_puts(1,output,7,100);
+         } else if (strncmp(recivido,cmd_get,3)) {
+         	char output[7];
+         	output[0] = 'O';
+         	output[1] = 'K';
+         	output[2] = ' ';
+         	output[3] = input_state(PIN_IN1) ? '1' : '0';
+         	output[4] = input_state(PIN_IN2) ? '1' : '0';
+         	output[5] = input_state(PIN_IN3) ? '1' : '0';
+         	output[6] = input_state(PIN_IN4) ? '1' : '0';
+         	usb_puts(1,output,7,100);
+         } else {
+         	usb_puts(1,wrong,3,100);
          }
       }
    }
@@ -150,10 +224,15 @@ void checkear_terminal() {
    }*/
 }
 
+void outputtt(char * a) {
+	usb_puts(1,a,4,100);
+}
+
 #task(rate=1000ms, max=10ms)
 void hid_heart_beat() {
-   if(usb_enumerated())
-      usb_puts(1,Mensaje,4,100);
+   if(usb_enumerated())      
+   	  usb_puts(1,Mensaje,4,100);
+  	  //sprintf(outputtt, "mensaje: %s", Mensaje);   	   	 
 }
 
 #task(rate=500ms, max=10ms)
@@ -195,6 +274,10 @@ void main() {
    */
    output_high(PIN_ENABLE);
    output_high(PIN_HEART);
+   output_high(PIN_IN4);
+   output_high(PIN_IN3);
+   output_high(PIN_IN2);
+   output_high(PIN_IN1);
    rtos_run();
    while (true) {      
       
