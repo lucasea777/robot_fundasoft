@@ -85,11 +85,11 @@
 #else
 	#define PIN_HEART pin_d0
 	#define PIN_ENUMERATED pin_d1
-	#define PIN_ENABLE pin_d6
-	#define PIN_IN4 pin_d5
+	#define PIN_ENABLE pin_d2
+	#define PIN_IN4 pin_d3
 	#define PIN_IN3 pin_d4
-	#define PIN_IN2 pin_d3
-	#define PIN_IN1 pin_d2
+	#define PIN_IN2 pin_d5
+	#define PIN_IN1 pin_d6
 	//#define PIN_ENABLE pin_d2
 #endif
 
@@ -270,10 +270,10 @@ void main() {
    */
    output_high(PIN_ENABLE);
    output_high(PIN_HEART);
-   output_high(PIN_IN4);
+   /*output_high(PIN_IN4);
    output_high(PIN_IN3);
    output_high(PIN_IN2);
-   output_high(PIN_IN1);
+   output_high(PIN_IN1);*/
    rtos_run();
    while (true) {      
       
