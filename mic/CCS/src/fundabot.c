@@ -85,15 +85,30 @@
 #else
 	#define PIN_HEART pin_d0
 	#define PIN_ENUMERATED pin_d1
-	#define PIN_ENABLE pin_d2
-	#define PIN_IN4 pin_d3
-	#define PIN_IN3 pin_d4
+	#define PIN_EN1 pin_d2
+	#define PIN_EN2 pin_d3
+
+	#define PIN_IN4 pin_d7
+	#define PIN_IN3 pin_d6
 	#define PIN_IN2 pin_d5
-	#define PIN_IN1 pin_d6
-	//#define PIN_ENABLE pin_d2
+	#define PIN_IN1 pin_d4
+	
 #endif
 
 #define PACKAGE_LENGTH 10
+
+//#DEVICE HIGH_INTS=true
+/*int clock = 0;
+#int_TIMER2
+void TIMER2_isr(void) {
+	clock++;
+	if (clock == 1000) {
+		char second[6] = "3sec";
+		usb_puts(1,second,4,100);
+		output_toggle(PIN_ENUMERATED);
+		clock = 0;
+	}
+}*/
 
 #use rtos(timer=0, minor_cycle=10ms)
 
@@ -245,6 +260,11 @@ void mandar_boton() {
 }
 
 void main() {
+   //setup_timer_2(T2_DIV_BY_16,170,2);
+   //enable_interrupts(INT_TIMER2);
+   //enable_interrupts(GLOBAL);
+   //setup_timer_2(T2_DIV_BY_16,54,14);      //1.0 ms interruptrupt   
+   //setup_timer_3 (T3_DISABLED | T3_DIV_BY_1) ;
    setup_adc_ports(NO_ANALOGS);  // desactivando puertos analogicos   
    //set_tris_b(0x0);              // configurando los puertos como salidas
    //output_b (0);                 // saca un nivel bajo de salida en los puertos
@@ -268,7 +288,8 @@ void main() {
       delay_ms(500);
    }
    */
-   output_high(PIN_ENABLE);
+   output_high(PIN_EN1);
+   output_high(PIN_EN2);
    output_high(PIN_HEART);
    /*output_high(PIN_IN4);
    output_high(PIN_IN3);

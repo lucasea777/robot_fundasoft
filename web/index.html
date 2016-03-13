@@ -14,6 +14,9 @@
 		width: 200px;
 		height: 100%;
 	}
+	.img {
+		transform: rotate(180deg);
+	}
 	</style>
 </head>
 <body>
@@ -28,7 +31,7 @@ function connect() {
 		console.log(evt.data)
 	}; 
 	function ping(){mySocket.send("get");}; 
-	mySocket.onopen = function(){var inter = setInterval(ping,3000)}
+	mySocket.onopen = function(){var inter = setInterval(ping,1500)}
 }
 
 function sendd(cmd) {
@@ -49,8 +52,8 @@ window.onkeyup = function(e)  {
 function checkKey(e) {
     var e = e || window.event;
     if (e.keyCode == '38') {
-    	var cmd = document.getElementById("up_cmd").value;
-        sendd(cmd)
+    	//var cmd = document.getElementById("up_cmd").value;
+    	sendd("set 0001"); setTimeout(function(){sendd("set 1001")},1000)
     }
     else if (e.keyCode == '40') {
         var cmd = document.getElementById("down_cmd").value;
@@ -69,12 +72,12 @@ function checkKey(e) {
 </script>
 <iframe id="camera" width="800" height="800"></iframe>
 <div class="controls">
-	ip:<input id="ip" value="192.168.1.4"></input><br>	
-	<-<input id="left_cmd"></input><br>
+	ip:<input id="ip" value="192.168.1.5"></input><br>	
+	<-<input id="left_cmd" value="set 0001"></input><br>
 	^<input id="up_cmd"></input><br>
-	-><input id="right_cmd"></input><br>
+	-><input id="right_cmd" value="set 1000"></input><br>
 	\/<input id="down_cmd"></input><br>
-	keyup:<input id="keyup_cmd"></input><br>
+	keyup:<input id="keyup_cmd" value="set 0000"></input><br>
 	<input type="button" onclick="connect()" value="Connect!!"></input>
 </div>
 </body>
